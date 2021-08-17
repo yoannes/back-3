@@ -20,5 +20,10 @@
   "homepage": "https://github.com/yoannes/back-3#readme",
   "devDependencies": {
     "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "knex": "^0.21.21",
+    "mysql2": "^2.3.0"
   }
 }
