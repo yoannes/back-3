@@ -1,5 +1,7 @@
 const { createdAt, updatedAt, foreign } = require("../helpers")
 
+// TODO: FIX
+
 exports.up = function (knex) {
   return knex.schema
     .createTable("pokemons", function (table) {
