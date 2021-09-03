@@ -12,6 +12,13 @@ docker exec -it back3-api bash
 npm i dotenv knex mysql2
 ```
 
+## Migrações
+
+O que fazer quando uma migração der errado:
+
+1. Apaga o banco de dados `drop schema db;`
+1. Cria o banco de dados `create schema db;`
+
 ## Links
 
 <https://knexjs.org/>

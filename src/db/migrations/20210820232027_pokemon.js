@@ -1,7 +1,5 @@
 const { createdAt, updatedAt, foreign } = require("../helpers")
 
-// TODO: FIX
-
 exports.up = function (knex) {
   return knex.schema
     .createTable("pokemons", function (table) {
@@ -32,13 +30,15 @@ exports.up = function (knex) {
 
 exports.down = function (knex) {
   return knex.schema
-    .table("pokemons", function (table) {
-      table.dropForeign("pokemon_id")
-    })
     .table("pokemon_types", function (table) {
       table.dropForeign("pokemon_id")
       table.dropForeign("type_id")
     })
+    .table("pokemon_images", function (table) {
+      table.dropForeign("pokemon_id")
+    })
     .dropTable("pokemon_types")
+    .dropTable("types")
+    .dropTable("pokemon_images")
     .dropTable("pokemons")
 }
