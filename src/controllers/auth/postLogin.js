@@ -1,3 +1,4 @@
+const { jwtSign } = require("../../helpers/jwtHelpers")
 const User = require("../../models/user")
 
 const validateRequest = (req, response) => {
@@ -25,6 +26,13 @@ const postLogin = async (req, res) => {
   if (!user) {
     response.status = "USER_NOT_FOUND"
     return res.status(401).json(response)
+  }
+
+  response.status = "OK"
+  response.result = {
+    id: user.id,
+    name: user.name,
+    token: jwtSign({ id: user.id }),
   }
 
   return res.json(response)

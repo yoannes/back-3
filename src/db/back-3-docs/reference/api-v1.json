@@ -116,6 +116,55 @@
           "Users"
         ]
       }
+    },
+    "/signup": {
+      "get": {
+        "summary": "Signup",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "result": {
+                      "$ref": "#/components/schemas/LoginObj"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-signup",
+        "description": "Signup",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "pwd": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "name",
+                  "pwd"
+                ]
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
