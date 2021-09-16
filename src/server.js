@@ -9,6 +9,10 @@ app.use(cors())
 
 app.use(routerV1)
 
-app.listen(process.env.PORT, () => {
+const port = process.env.NODE_ENV === "test" ? 5001 : 5000
+
+app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${process.env.PORT}`)
 })
+
+module.exports = app

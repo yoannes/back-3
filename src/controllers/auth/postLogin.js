@@ -1,4 +1,5 @@
 const { jwtSign } = require("../../helpers/jwtHelpers")
+const { pwdCompare } = require("../../helpers/pwdHelpers")
 const User = require("../../models/user")
 
 const validateRequest = (req, response) => {
@@ -22,9 +23,14 @@ const postLogin = async (req, res) => {
     return res.status(400).json(response)
   }
 
-  const user = await User.query().where({ name: req.body.username }).first()
+  const user = await User.query().where({ username: req.body.username }).first()
   if (!user) {
     response.status = "USER_NOT_FOUND"
+    return res.status(401).json(response)
+  }
+
+  if (!pwdCompare(req.body.pwd, user.pwd)) {
+    response.status = "WRONG_PWD"
     return res.status(401).json(response)
   }
 
