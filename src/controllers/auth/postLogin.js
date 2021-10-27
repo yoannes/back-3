@@ -1,6 +1,6 @@
 const { jwtSign } = require("../../helpers/jwtHelpers")
 const { pwdCompare } = require("../../helpers/pwdHelpers")
-const User = require("../../models/user")
+const User = require("../../models/User")
 
 const validateRequest = (req, response) => {
   if (!req.body.username) {
