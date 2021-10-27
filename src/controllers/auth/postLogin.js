@@ -2,6 +2,8 @@ const { jwtSign } = require("../../helpers/jwtHelpers")
 const { pwdCompare } = require("../../helpers/pwdHelpers")
 const User = require("../../models/User")
 
+// hey
+
 const validateRequest = (req, response) => {
   if (!req.body.username) {
     response.status = "NO_USERNAME"
