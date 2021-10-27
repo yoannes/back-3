@@ -35,5 +35,8 @@
     "mysql2": "^2.3.0",
     "objection": "^2.2.16",
     "supertest": "^6.1.6"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
